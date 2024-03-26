@@ -13,3 +13,4 @@ PyRect==0.2.0
 pyscreenshot==3.1
 PyScreeze==0.1.29
 pytweening==1.0.7
+pysimplegui==4.60.5
