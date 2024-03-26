@@ -15,6 +15,7 @@ agents = [
     "breach",
     "brimstone",
     "chamber",
+    "clove",
     "cypher",
     "deadlock",
     "fade",
