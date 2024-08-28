@@ -43,6 +43,7 @@ agentsAll = [
     "skye",
     "sova",
     "viper",
+    "vyse",
     "yoru"
 ]
 agentsEnabled = sorted(agentsAll)
@@ -54,13 +55,15 @@ window = None
 agentsWindow = None
 
 # 1440p values
-portraitSize = 106
-startx = 779
-starty = 1069
-marginx = 6
-marginy = 5
+portraitSizeX = 122
+portraitSizeY = 121
+startx = 53
+starty = 403
+marginx = 10
+marginy = 11
 loginBoxX = 1279
 loginBoxY = 975
+agentsPerRow = 4
 
 defaultX = 2560
 defaultY = 1440
@@ -69,7 +72,8 @@ defaultY = 1440
 scaleX = pag.size().width / defaultX
 scaleY = pag.size().height / defaultY
 
-portraitSize = int(portraitSize * scaleX)
+portraitSizeX = int(portraitSizeX * scaleX)
+portraitSizeY = int(portraitSizeY * scaleY)
 startx = int(startx * scaleX)
 starty = int(starty * scaleY)
 marginx = int(marginx * scaleX)
@@ -83,7 +87,7 @@ def generate_portraits():
     screenshot = pag.screenshot(imageFolder + "Game.png")
     i = 0
     while i < len(agentsEnabled):
-        new_image = screenshot.crop((startx + (i % 9) * (portraitSize + marginx), starty + (i // 9) * (portraitSize + marginy), startx + (i % 9) * (portraitSize + marginx) + portraitSize, starty + (i // 9) * (portraitSize + marginy) + portraitSize))
+        new_image = screenshot.crop((startx + (i % agentsPerRow) * (portraitSizeX + marginx), starty + (i // agentsPerRow) * (portraitSizeY + marginy), startx + (i % agentsPerRow) * (portraitSizeX + marginx) + portraitSizeX, starty + (i // agentsPerRow) * (portraitSizeY + marginy) + portraitSizeY))
         new_image.save(imageFolder + agentsEnabled[i] + ".png")
         i += 1
     return True
